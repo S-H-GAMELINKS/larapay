@@ -1904,9 +1904,7 @@ __webpack_require__.r(__webpack_exports__);
       axios__WEBPACK_IMPORTED_MODULE_1___default.a.defaults.headers["X-CSRF-TOKEN"] = jquery__WEBPACK_IMPORTED_MODULE_2___default()("meta[name=csrf-token]").attr("content");
       axios__WEBPACK_IMPORTED_MODULE_1___default.a.defaults.headers["content-type"] = "application/json";
       axios__WEBPACK_IMPORTED_MODULE_1___default.a.post("/set_token", {
-        user: {
-          token: token
-        }
+        token: token
       }).then(function (response) {
         console.log(response);
         alert("Success!");
