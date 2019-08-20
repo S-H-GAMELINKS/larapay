@@ -2,6 +2,8 @@
 
 @section('content')
 
-<h1>Web#Checkout</h1>
+<h1>Registration Credit Crad</h1>
+
+<checkout-component></checkout-component>
 
 @endsection
