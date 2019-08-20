@@ -39,7 +39,7 @@ export default {
         "content"
       );
       axios.defaults.headers["content-type"] = "application/json";
-      axios.post("/api/users/set_token", { user: { token: token } }).then(
+      axios.post("/set_token", { user: { token: token } }).then(
         response => {
           console.log(response);
           alert("Success!");
