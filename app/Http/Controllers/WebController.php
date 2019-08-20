@@ -24,8 +24,16 @@ class WebController extends Controller
 
     public function set_token(Request $request)
     {
+
+        $pay_jp_secret = env('MIX_PAYJP_SECRET_KEY');
+        \Payjp\Payjp::setApiKey($pay_jp_secret);
+
+        $customer = \Payjp\Customer::create(array(
+            "card" => request('token')
+        ));
+
         $user = Auth::user();
-        $user->token = request('token');
+        $user->token = $customer->id;
         $user->save();
 
         return response()->json($user);
