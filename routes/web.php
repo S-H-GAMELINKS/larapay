@@ -17,6 +17,8 @@ Route::get('/checkout', 'WebController@checkout')->middleware('auth')->name('che
 
 Route::get('/payment', 'WebController@payment')->middleware('auth')->name('payment');
 
+Route::post('/set_token', 'WebController@set_token')->middleware('auth');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

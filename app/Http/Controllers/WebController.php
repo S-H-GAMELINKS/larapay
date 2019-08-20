@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class WebController extends Controller
 {
-    public function index() 
+    public function index()
     {
         return view('web.index');
     }
@@ -19,5 +20,14 @@ class WebController extends Controller
     public function payment()
     {
         return view('web.payment');
+    }
+
+    public function set_token(Request $request)
+    {
+        $user = Auth::user();
+        $user->token = request('token');
+        $user->save();
+
+        return response()->json($user);
     }
 }
