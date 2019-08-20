@@ -4,4 +4,6 @@
 
 <h1>Web#Payment</h1>
 
+<payment-component></payment-component>
+
 @endsection
