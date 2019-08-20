@@ -38,4 +38,22 @@ class WebController extends Controller
 
         return response()->json($user);
     }
+
+    public function pay(Request $request)
+    {
+        $pay_jp_secret = env('MIX_PAYJP_SECRET_KEY');
+        \Payjp\Payjp::setApiKey($pay_jp_secret);
+
+        $user = Auth::user();
+
+        $res = \Payjp\Charge::create(
+            [
+                "customer" => $user->token,
+                "amount" => request('price'),
+                "currency" => 'jpy'
+            ]
+        );
+
+        return response()->json($res);
+    }
 }
