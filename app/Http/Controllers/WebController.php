@@ -10,4 +10,9 @@ class WebController extends Controller
     {
         return view('web.index');
     }
+
+    public function checkout()
+    {
+        return view('web.checkout');
+    }
 }
